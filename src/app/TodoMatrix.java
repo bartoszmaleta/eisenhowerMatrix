@@ -1,6 +1,7 @@
 package app;
 
 import java.util.Map;
+import java.util.HashMap;
 import java.time.LocalDate;
 // import java.util.ArrayList;
 // import java.util.List;
@@ -13,7 +14,11 @@ public class TodoMatrix {
     private Map<String, TodoQuarter> todoQuarters;
 
     public TodoMatrix() {
-        // TODO
+        todoQuarters = new HashMap<>();
+        todoQuarters.put("IU", new TodoQuarter());
+        todoQuarters.put("IN", new TodoQuarter());
+        todoQuarters.put("NU", new TodoQuarter());
+        todoQuarters.put("NN", new TodoQuarter());
     }
 
     public Map getQuarters() {
