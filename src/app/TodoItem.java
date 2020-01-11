@@ -29,8 +29,11 @@ public class TodoItem {
     }
 
     public String toString() {
-        // TODO
-        return "";
+        if (isDone) {
+            return "[x] " + deadline.toString().substring(5) + " " + title;
+        } else {
+            return "[] " + deadline.toString().substring(5) + " " + title;
+        }
     }
     
 }
