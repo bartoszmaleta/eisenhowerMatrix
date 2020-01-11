@@ -13,7 +13,6 @@ public class TodoQuarter {
     }
 
     public void addItem(String title, LocalDate deadline) {
-        // TODO
         for (int i = 0; i < todoItems.size(); i++) {
             if (todoItems.get(i).getDeadline().isBefore(deadline)) {
                 todoItems.add(i, new TodoItem(title, deadline));
