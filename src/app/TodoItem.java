@@ -35,5 +35,4 @@ public class TodoItem {
             return "[] " + deadline.toString().substring(5) + " " + title;
         }
     }
-    
 }
