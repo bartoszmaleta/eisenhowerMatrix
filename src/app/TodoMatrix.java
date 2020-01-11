@@ -30,7 +30,6 @@ public class TodoMatrix {
     }
 
     public void addItem(String title, LocalDate deadline, boolean isImportant) {
-        // TODO
         LocalDate dateNow = LocalDate.now();
 
         if (isImportant) {
