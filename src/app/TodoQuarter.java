@@ -34,7 +34,14 @@ public class TodoQuarter {
     }
 
     public String toString() {
-        // TODO
+        String todoItemsListAsString = "";
+        for (int i = 0; i < todoItems.size(); i++) {
+            if (todoItems.get(i).isDone) {
+                todoItemsListAsString = i + ". " + todoItemsListAsString + "[x] " + todoItems.get(i).getDeadline().toString().substring(5) + " " + todoItems.get(i).getTitle() + "\n";
+            } else {
+                todoItemsListAsString = i + ". " + todoItemsListAsString + "[ ] " + todoItems.get(i).getDeadline().toString().substring(5) + " " + todoItems.get(i).getTitle() + "\n";
+            }
+        }
         return "";
     }
 

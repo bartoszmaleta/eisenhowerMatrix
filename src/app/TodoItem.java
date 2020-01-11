@@ -5,7 +5,7 @@ import java.time.LocalDate;
 public class TodoItem {
     private String title;
     private LocalDate deadline;
-    private boolean isDone;
+    public boolean isDone;
 
     public TodoItem(String title, LocalDate deadline) {
         this.title = title;
