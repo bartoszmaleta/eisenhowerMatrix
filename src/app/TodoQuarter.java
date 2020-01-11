@@ -18,6 +18,7 @@ public class TodoQuarter {
 
     public void removeItem(int index) {
         // TODO
+        todoItems.remove(index);
     }
 
     public void archiveItems() {
