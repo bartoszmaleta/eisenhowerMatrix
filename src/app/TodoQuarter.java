@@ -17,12 +17,15 @@ public class TodoQuarter {
     }
 
     public void removeItem(int index) {
-        // TODO
         todoItems.remove(index);
     }
 
     public void archiveItems() {
-        // TODO
+        for (int i = 0; i < todoItems.size(); i++) {
+            if (todoItems.get(i).isDone) {
+                todoItems.remove(i);
+            }
+        }
     }
 
     public TodoItem getItem(int index) {
