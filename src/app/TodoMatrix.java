@@ -31,6 +31,21 @@ public class TodoMatrix {
 
     public void addItem(String title, LocalDate deadline, boolean isImportant) {
         // TODO
+        LocalDate dateNow = LocalDate.now();
+
+        if (isImportant) {
+            if (deadline.isBefore(dateNow.plusDays(3))) {
+                todoQuarters.get("IU").addItem(title, deadline);
+            } else {
+                todoQuarters.get("IN").addItem(title, deadline);
+            }
+        } else {
+            if (deadline.isBefore(dateNow.plusDays(3))) {
+                todoQuarters.get("NU").addItem(title, deadline);
+            } else {
+                todoQuarters.get("NN").addItem(title, deadline);
+            }
+        }
     }
 
     public void addItemsFromFile(String fileName) {
