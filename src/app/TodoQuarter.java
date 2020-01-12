@@ -27,7 +27,7 @@ public class TodoQuarter {
 
     public void archiveItems() {
         for (int i = 0; i < todoItems.size(); i++) {
-            if (todoItems.get(i).isDone) {
+            if (todoItems.get(i).getIsDone()) {
                 todoItems.remove(i);
             }
         }
@@ -46,7 +46,7 @@ public class TodoQuarter {
         String todoItemsListAsString = ""; // "";
         int counter = 1;
         for (int i = 0; i < todoItems.size(); i++) {
-            if (todoItems.get(i).isDone) {
+            if (todoItems.get(i).getIsDone()) {
                 todoItemsListAsString = todoItemsListAsString + counter + ". ";
                 todoItemsListAsString = todoItemsListAsString + "[x] " + todoItems.get(i).getDeadline().toString().substring(5) + " " + todoItems.get(i).getTitle() + "\n";
             } else {
