@@ -9,7 +9,7 @@ import java.time.LocalDate;
     //   - coloured marked                      
     //   - matrix formatted                     
     //   - undo marking                         
-    //   - automatically archive                
+    //   - automatically archive                DONE!
 
 public class Main {
     public static void main(String[] args) {
@@ -50,6 +50,10 @@ public class Main {
         System.out.println("----------------");
         eisenhowerMatrix.getQuarter("NN").removeItem(2);
         eisenhowerMatrix.getQuarter("NN").getItem(0).mark();
+        System.out.println(eisenhowerMatrix.toString());
+
+        System.out.println("----------------");
+        eisenhowerMatrix.archiveItems();            // DELETE MARKED!
         System.out.println(eisenhowerMatrix.toString());
 
         // TodoItem todoItem2 = new TodoItem(title, deadline);
