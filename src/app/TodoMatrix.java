@@ -57,7 +57,9 @@ public class TodoMatrix {
         String todoQuartersListAsString = "";
 
         todoQuartersListAsString = todoQuartersListAsString + "important & urgent \n";
+        int sizeOfQuarter = todoQuarters.size();
         todoQuartersListAsString = todoQuartersListAsString + todoQuarters.get("IU").toString() + "\n";
+        // todoQuartersListAsString = todoQuartersListAsString + todoQuarters.toString() + "\n";
         todoQuartersListAsString = todoQuartersListAsString + "important & not urgent \n";
         todoQuartersListAsString = todoQuartersListAsString + todoQuarters.get("IN").toString() + "\n";
         todoQuartersListAsString = todoQuartersListAsString + "not important & urget \n";

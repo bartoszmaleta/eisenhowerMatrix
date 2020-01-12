@@ -41,17 +41,20 @@ public class TodoQuarter {
         return todoItems;
     }
 
-    public String toString() {
-        String todoItemsListAsString = "";
+    // public String toString(int sizeOfQuarter) {
+        public String toString() {
+        String todoItemsListAsString = ""; // "";
+        int counter = 1;
         for (int i = 0; i < todoItems.size(); i++) {
-            // System.out.print(i + 1);
             if (todoItems.get(i).isDone) {
+                todoItemsListAsString = todoItemsListAsString + counter + ". ";
                 todoItemsListAsString = todoItemsListAsString + "[x] " + todoItems.get(i).getDeadline().toString().substring(5) + " " + todoItems.get(i).getTitle() + "\n";
             } else {
+                todoItemsListAsString = todoItemsListAsString + counter + ". ";
                 todoItemsListAsString = todoItemsListAsString + "[ ] " + todoItems.get(i).getDeadline().toString().substring(5) + " " + todoItems.get(i).getTitle() + "\n";
             }
+            counter++;
         }
         return todoItemsListAsString;
     }
-
 }

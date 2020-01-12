@@ -2,6 +2,14 @@ package app;
 
 import java.time.LocalDate;
 
+    // TODO:
+    //   - all methods private 
+    //   - don't read data from file
+    //   - don't export data
+    //   - coloured marked
+    //   - matrix formatted
+    //   - undo marking
+    //   - automatically archive
 
 public class Main {
     public static void main(String[] args) {
