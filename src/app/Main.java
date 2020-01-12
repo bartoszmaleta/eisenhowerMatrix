@@ -3,15 +3,15 @@ package app;
 import java.time.LocalDate;
 import java.util.Scanner;
 
-    // TODO:
-    //   - all fields private                   DONE!
-    //   - don't read data from file            
-    //   - don't export data                    
-    //   - coloured marked                      
-    //   - matrix formatted                     
-    //   - undo marking                         
-    //   - automatically archive                DONE!
-    //   - inputing info about item
+// TODO:
+//   - all fields private                   DONE!
+//   - don't read data from file            
+//   - don't export data                    
+//   - coloured marked                      
+//   - matrix formatted                     
+//   - undo marking                         
+//   - automatically archive                DONE!
+//   - inputing info about item
 
 public class Main {
     public static void main(String[] args) {
@@ -62,29 +62,53 @@ public class Main {
 
         Scanner scanner = new Scanner(System.in);
 
-        System.out.println("Enter todo note: ");
-        // boolean hasNextString = scanner....
+        boolean isRunning = true;
 
-        String todoInputted = scanner.nextLine();
-        // scanner.nextLine();
+        while (isRunning) {
+            System.out.println("Menu");
+            System.out.println("Choose option");
+            
+            System.out.println("1. Add todo item");
+            System.out.println("2. Show todo list");
+            System.out.println("3. Exit program");
 
-        System.out.println("Enter number of days this todo should be done: ");
-        String deadlineInputted = scanner.nextLine();
-        int deadlineInputtedInt = Integer.parseInt(deadlineInputted);
-        // scanner.nextLine();
+            String choosedOption = scanner.nextLine();
 
-        System.out.println("Enter true or false if the todo is important: (true/false)");
-        String isImportantInputted = scanner.nextLine();
-        boolean isImportantInputtedBoolean = Boolean.valueOf(isImportantInputted);
-        // scanner.nextLine();
-
-        System.out.println(todoInputted);
-        System.out.println(deadlineInputted);
-        System.out.println(isImportantInputted);
-
-        eisenhowerMatrix.addItem(todoInputted, deadline.plusDays(deadlineInputtedInt), isImportantInputtedBoolean);
+            switch (choosedOption) {
+                case "1":
+                System.out.println("Enter todo note: ");
+                // boolean hasNextString = scanner....
         
-        System.out.println(eisenhowerMatrix.toString());
+                String todoInputted = scanner.nextLine();
+                // scanner.nextLine();
+        
+                System.out.println("Enter number of days this todo should be done: ");
+                String deadlineInputted = scanner.nextLine();
+                int deadlineInputtedInt = Integer.parseInt(deadlineInputted);
+                // scanner.nextLine();
+        
+                System.out.println("Enter true or false if the todo is important: (true/false)");
+                String isImportantInputted = scanner.nextLine();
+                boolean isImportantInputtedBoolean = Boolean.valueOf(isImportantInputted);
+                // scanner.nextLine();
+        
+                System.out.println(todoInputted);
+                System.out.println(deadlineInputted);
+                System.out.println(isImportantInputted);
+        
+                eisenhowerMatrix.addItem(todoInputted, deadline.plusDays(deadlineInputtedInt), isImportantInputtedBoolean);
+                
+                System.out.println(eisenhowerMatrix.toString());
+                break;
 
+                case "2":
+                System.out.println(eisenhowerMatrix.toString());
+                break;
+
+                case "3":
+                System.exit(0); 
+                break;
+            }
+        }
     }
 }
