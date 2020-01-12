@@ -1,6 +1,7 @@
 package app;
 
 import java.time.LocalDate;
+import java.util.Scanner;
 
     // TODO:
     //   - all fields private                   DONE!
@@ -57,7 +58,33 @@ public class Main {
         eisenhowerMatrix.archiveItems();            // DELETE MARKED!
         System.out.println(eisenhowerMatrix.toString());
 
-        // TodoItem todoItem2 = new TodoItem(title, deadline);
-        // todoItem2.isDone;
+        System.out.println("----------------");
+
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Enter todo note: ");
+        // boolean hasNextString = scanner....
+
+        String todoInputted = scanner.nextLine();
+        // scanner.nextLine();
+
+        System.out.println("Enter number of days this todo should be done: ");
+        String deadlineInputted = scanner.nextLine();
+        int deadlineInputtedInt = Integer.parseInt(deadlineInputted);
+        // scanner.nextLine();
+
+        System.out.println("Enter true or false if the todo is important: (true/false)");
+        String isImportantInputted = scanner.nextLine();
+        boolean isImportantInputtedBoolean = Boolean.valueOf(isImportantInputted);
+        // scanner.nextLine();
+
+        System.out.println(todoInputted);
+        System.out.println(deadlineInputted);
+        System.out.println(isImportantInputted);
+
+        eisenhowerMatrix.addItem(todoInputted, deadline.plusDays(deadlineInputtedInt), isImportantInputtedBoolean);
+        
+        System.out.println(eisenhowerMatrix.toString());
+
     }
 }
