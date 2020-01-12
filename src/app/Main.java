@@ -10,6 +10,7 @@ import java.time.LocalDate;
     //   - matrix formatted                     
     //   - undo marking                         
     //   - automatically archive                DONE!
+    //   - inputing info about item
 
 public class Main {
     public static void main(String[] args) {
