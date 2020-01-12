@@ -5,11 +5,11 @@ import java.util.Scanner;
 
 // TODO:
 //   - all fields private                   DONE!
-//   - don't read data from file            
-//   - don't export data                    
-//   - coloured marked                      
+//   - read data from file                  WIP!
+//   - export data                    
+//   - coloured marked                      WIP!  
 //   - matrix formatted                     
-//   - undo marking                         
+//   - undo marking                         DONE
 //   - automatically archive                DONE!
 //   - inputing info about item             DONE!
 
@@ -18,7 +18,6 @@ public class Main {
         LocalDate deadline = LocalDate.now();
         Scanner scanner = new Scanner(System.in);
         boolean isRunning = true;
-        AddingTodo addingOption = new AddingTodo();
         TodoMatrix eisenhowerMatrix = new TodoMatrix();
 
         System.out.println("----------------");
@@ -33,6 +32,8 @@ public class Main {
         eisenhowerMatrix.addItem("testing item6", deadline.plusDays(4), true);
         eisenhowerMatrix.addItem("testing item7", deadline.plusDays(2), true);
         eisenhowerMatrix.addItem("testing item8", deadline.plusDays(0), false);
+        // eisenhowerMatrix.addItem("testing item9", deadline.plusDays(1), false);
+        eisenhowerMatrix.getQuarter("NN").getItem(1).mark();
         System.out.println(eisenhowerMatrix.toString());
 
         System.out.println("----------------");
@@ -45,7 +46,6 @@ public class Main {
 
         // System.out.println("----------------");
         // eisenhowerMatrix.getQuarter("NN").removeItem(2);
-        // eisenhowerMatrix.getQuarter("NN").getItem(0).mark();
         // System.out.println(eisenhowerMatrix.toString());
 
         // System.out.println("----------------");
@@ -56,26 +56,26 @@ public class Main {
         // 32 = green > 3
         // 33 = orange > 0 && <= 3
         // 31 = red = 0
-        // 
-        // System.out.print("\033[31mERROR  \033[0m");
+        // 37 = default (marked)
+        //
+        // System.out.print("\033[31mERROR \033[0m");
         // System.out.println("\033[0;31;49m qwqwe");
         // System.out.print("\033[0;37;49m");
-        System.out.println(LocalDate.now());
         while (isRunning) {
-            System.out.println("Menu");
+            System.out.println("\033[0;37;49mMenu");
             System.out.println("Choose option");
 
             System.out.println("1. Add todo item");
             System.out.println("2. Show todo list");
-            System.out.println("3. Exit program");
+            System.out.println("3. Archive all done todos");
+            System.out.println("4. Mark todo");
+            System.out.println("5. Unmark todo");
+            System.out.println("6. Exit program");
 
             String choosedOption = scanner.nextLine();
 
             switch (choosedOption) {
             case "1":
-                // addingOption.addingOptionInMenu();
-                // System.out.println(eisenhowerMatrix.toString());
-
                 System.out.println("Enter todo note: ");
 
                 String todoInputted = scanner.nextLine();
@@ -101,6 +101,26 @@ public class Main {
             case "3":
                 eisenhowerMatrix.archiveItems();
                 break;
+
+            case "4":
+            System.out.println("Enter which status of todo would you like to mark: ");
+            String statusToMark = scanner.nextLine();
+
+            System.out.println("Enter index of todo to mark:");
+            String indexToMarkString = scanner.nextLine();
+            int indexToMarkInt = Integer.parseInt(indexToMarkString) + 1;
+
+            eisenhowerMatrix.getQuarter(statusToMark).getItem(indexToMarkInt).unmark();
+
+            case "5":
+                System.out.println("Enter which status of todo would you like to unmark: ");
+                String statusToUnmark = scanner.nextLine();
+
+                System.out.println("Enter index of todo to unmark:");
+                String indexToUnmarkString = scanner.nextLine();
+                int indexToUnmarkInt = Integer.parseInt(indexToUnmarkString) + 1;
+
+                eisenhowerMatrix.getQuarter(statusToUnmark).getItem(indexToUnmarkInt).unmark();
 
             case "6":
                 eisenhowerMatrix.archiveItems();

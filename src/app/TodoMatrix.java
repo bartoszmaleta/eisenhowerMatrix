@@ -56,13 +56,13 @@ public class TodoMatrix {
     public String toString() {
         String todoQuartersListAsString = "";
 
-        todoQuartersListAsString = todoQuartersListAsString + "important & urgent \n";
+        todoQuartersListAsString = todoQuartersListAsString + "\033[0;37;49mimportant & urgent \n";
         todoQuartersListAsString = todoQuartersListAsString + todoQuarters.get("IU").toString() + "\n";
-        todoQuartersListAsString = todoQuartersListAsString + "important & not urgent \n";
+        todoQuartersListAsString = todoQuartersListAsString + "\033[0;37;49mimportant & not urgent \n";
         todoQuartersListAsString = todoQuartersListAsString + todoQuarters.get("IN").toString() + "\n";
-        todoQuartersListAsString = todoQuartersListAsString + "not important & urget \n";
+        todoQuartersListAsString = todoQuartersListAsString + "\033[0;37;49mnot important & urget \n";
         todoQuartersListAsString = todoQuartersListAsString + todoQuarters.get("NU").toString() + "\n";
-        todoQuartersListAsString = todoQuartersListAsString + "not important & not urgent \n";
+        todoQuartersListAsString = todoQuartersListAsString + "\033[0;37;49mnot important & not urgent \n";
         todoQuartersListAsString = todoQuartersListAsString + todoQuarters.get("NN").toString() + "\n";
 
         return todoQuartersListAsString;
