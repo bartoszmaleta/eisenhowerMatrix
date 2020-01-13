@@ -7,7 +7,7 @@ import java.util.Scanner;
 //   - all fields private                   DONE!
 //   - read data from file                  WIP!
 //   - export data                    
-//   - coloured marked                      WIP!  
+//   - coloured marked                      DONE!  
 //   - matrix formatted                     
 //   - undo marking                         DONE
 //   - automatically archive                DONE!
@@ -32,7 +32,7 @@ public class Main {
         eisenhowerMatrix.addItem("testing item6", deadline.plusDays(4), true);
         eisenhowerMatrix.addItem("testing item7", deadline.plusDays(2), true);
         eisenhowerMatrix.addItem("testing item8", deadline.plusDays(0), false);
-        // eisenhowerMatrix.addItem("testing item9", deadline.plusDays(1), false);
+        eisenhowerMatrix.addItem("testing item9", deadline.plusDays(1), false);
         eisenhowerMatrix.getQuarter("NN").getItem(1).mark();
         System.out.println(eisenhowerMatrix.toString());
 
@@ -57,10 +57,7 @@ public class Main {
         // 33 = orange > 0 && <= 3
         // 31 = red = 0
         // 37 = default (marked)
-        //
-        // System.out.print("\033[31mERROR \033[0m");
-        // System.out.println("\033[0;31;49m qwqwe");
-        // System.out.print("\033[0;37;49m");
+
         while (isRunning) {
             System.out.println("\033[0;37;49mMenu");
             System.out.println("Choose option");

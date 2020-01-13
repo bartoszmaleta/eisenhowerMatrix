@@ -7,6 +7,14 @@ import java.util.ArrayList;;
 public class TodoQuarter {
     private List<TodoItem> todoItems;
     LocalDate dateNow = LocalDate.now();
+    // 37 = default (marked)
+    // 32 = green > 3
+    // 33 = orange > 0 && <= 3
+    // 31 = red = 0
+    private String defaultColour = "\033[0;37;49m";
+    private String greenColour = "\033[0;32;49m";
+    private String orangeColour = "\033[0;33;49m";
+    private String redColour = "\033[0;31;49m";
 
     public TodoQuarter() {
         todoItems = new ArrayList<TodoItem>();
@@ -42,32 +50,40 @@ public class TodoQuarter {
         return todoItems;
     }
 
-    // public String toString(int sizeOfQuarter) {
-        public String toString() {
-        String todoItemsListAsString = ""; // "";
+    public String toString() {
+        String todoItemsListAsString = ""; 
         int counter = 1;
         for (int i = 0; i < todoItems.size(); i++) {
             if (todoItems.get(i).getIsDone()) {
-                todoItemsListAsString = "\033[0;37;49m" + todoItemsListAsString + counter + ". ";
-                todoItemsListAsString = todoItemsListAsString + "[x] " + todoItems.get(i).getDeadline().toString().substring(5) + " " + todoItems.get(i).getTitle() + "\n";
+                todoItemsListAsString = todoItemsListAsString + defaultColour + counter + ". ";
+                todoItemsListAsString = todoItemsListAsString + defaultColour + "[x] "
+                        + todoItems.get(i).getDeadline().toString().substring(5) + " " + todoItems.get(i).getTitle()
+                        + "\n";
             } else {
                 if (todoItems.get(i).getDeadline().isAfter(dateNow.plusDays(3))) {
-                    // System.out.println("\033[0;32;49m qwqwe");
-                    todoItemsListAsString = "\033[0;32;49m" + todoItemsListAsString + counter + ". ";
-                    todoItemsListAsString = todoItemsListAsString + "[ ] " + todoItems.get(i).getDeadline().toString().substring(5) + " " + todoItems.get(i).getTitle() + "\n"; // + "\033[0;37;49m";
-                    // System.out.print("\033[0;37;49m");
-    
-                } else if (todoItems.get(i).getDeadline().equals(dateNow)) {
-                    todoItemsListAsString = "\033[0;31;49m" + todoItemsListAsString + counter + ". ";
-                    todoItemsListAsString = todoItemsListAsString + "[ ] " + todoItems.get(i).getDeadline().toString().substring(5) + " " + todoItems.get(i).getTitle() + "\n"; // + "\033[0;37;49m";
+                    todoItemsListAsString = defaultColour + todoItemsListAsString + greenColour + counter + ". " + defaultColour;
+                    todoItemsListAsString = todoItemsListAsString + greenColour + "[ ] "
+                            + todoItems.get(i).getDeadline().toString().substring(5) + " " + todoItems.get(i).getTitle()
+                            + "\n"; 
 
-                } else if (todoItems.get(i).getDeadline().isAfter(dateNow) && todoItems.get(i).getDeadline().isBefore(dateNow.plusDays(3))) {
-                    todoItemsListAsString = "\033[0;33;49m" + todoItemsListAsString + counter + ". ";
-                    todoItemsListAsString = todoItemsListAsString + "[ ] " + todoItems.get(i).getDeadline().toString().substring(5) + " " + todoItems.get(i).getTitle() + "\n"; // + "\033[0;37;49m";
+                } else if (todoItems.get(i).getDeadline().equals(dateNow)) {
+                    todoItemsListAsString =  todoItemsListAsString  + redColour + counter + ". " + defaultColour;
+                    todoItemsListAsString = todoItemsListAsString + redColour + "[ ] "
+                            + todoItems.get(i).getDeadline().toString().substring(5) + " " + todoItems.get(i).getTitle()
+                            + "\n"; 
+
+                } else if (todoItems.get(i).getDeadline().isAfter(dateNow)
+                        && todoItems.get(i).getDeadline().isBefore(dateNow.plusDays(3))) {
+                    todoItemsListAsString = todoItemsListAsString + orangeColour + counter + ". " + defaultColour;
+                    todoItemsListAsString = todoItemsListAsString + orangeColour + "[ ] "
+                            + todoItems.get(i).getDeadline().toString().substring(5) + " " + todoItems.get(i).getTitle()
+                            + "\n"; 
 
                 }
                 // todoItemsListAsString = todoItemsListAsString + counter + ". ";
-                // todoItemsListAsString = todoItemsListAsString + "[ ] " + todoItems.get(i).getDeadline().toString().substring(5) + " " + todoItems.get(i).getTitle() + "\n";
+                // todoItemsListAsString = todoItemsListAsString + "[ ] " +
+                // todoItems.get(i).getDeadline().toString().substring(5) + " " +
+                // todoItems.get(i).getTitle() + "\n";
             }
             counter++;
         }
