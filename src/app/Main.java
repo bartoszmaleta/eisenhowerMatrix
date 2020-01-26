@@ -67,7 +67,7 @@ public class Main {
             System.out.println("3. Archive all done todos");
             System.out.println("4. Mark todo");
             System.out.println("5. Unmark todo");
-            System.out.println("6. Remove item");
+            System.out.println("6. Remove item ");
             System.out.println("7. Exit program");
 
             String choosedOption = scanner.nextLine();
