@@ -67,7 +67,8 @@ public class Main {
             System.out.println("3. Archive all done todos");
             System.out.println("4. Mark todo");
             System.out.println("5. Unmark todo");
-            System.out.println("6. Exit program");
+            System.out.println("6. Remove item");
+            System.out.println("7. Exit program");
 
             String choosedOption = scanner.nextLine();
 
@@ -100,14 +101,14 @@ public class Main {
                 break;
 
             case "4":
-            System.out.println("Enter which status of todo would you like to mark: ");
-            String statusToMark = scanner.nextLine();
+                System.out.println("Enter which status of todo would you like to mark: ");
+                String statusToMark = scanner.nextLine();
 
-            System.out.println("Enter index of todo to mark:");
-            String indexToMarkString = scanner.nextLine();
-            int indexToMarkInt = Integer.parseInt(indexToMarkString) + 1;
+                System.out.println("Enter index of todo to mark:");
+                String indexToMarkString = scanner.nextLine();
+                int indexToMarkInt = Integer.parseInt(indexToMarkString) + 1;
 
-            eisenhowerMatrix.getQuarter(statusToMark).getItem(indexToMarkInt).unmark();
+                eisenhowerMatrix.getQuarter(statusToMark).getItem(indexToMarkInt).unmark();
 
             case "5":
                 System.out.println("Enter which status of todo would you like to unmark: ");
@@ -120,6 +121,17 @@ public class Main {
                 eisenhowerMatrix.getQuarter(statusToUnmark).getItem(indexToUnmarkInt).unmark();
 
             case "6":
+                System.out.println("Enter quarter of todo: (IU, IN, NU, NN)");
+                String quarterOfTodoItem = scanner.nextLine();
+
+                System.out.println("Enter number of index of todo which should be removed: ");
+                String indexOfItemToBeRemoved = scanner.nextLine();
+                int indexOfItemToBeRemovedInt = Integer.parseInt(indexOfItemToBeRemoved);
+
+                eisenhowerMatrix.getQuarter(quarterOfTodoItem).removeItem(indexOfItemToBeRemovedInt);
+                break;
+
+            case "7":
                 eisenhowerMatrix.archiveItems();
                 System.exit(0);
                 break;
